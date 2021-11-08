@@ -1,0 +1,57 @@
+PROCEDURE dot_product(V1,V2 : ARRAY_OF INTEGER[]; VAR p: INTEGER:=0)
+VAR
+    i,j: INTEGER:= 0;
+BEGIN
+    IF (V1.length= V2.length) THEN
+        FOR i FROM 0 TO V1.length-1 STEP i++  DO
+            FOR j FROM 0 TO V2.length-1 STEP j++  DO
+            p:= p + V1[i]*V2[j];
+                    END_FOR
+        END_FOR
+    END_IF
+END
+
+ALGORITHM dot_product_algo
+VAR
+    V1, V2 : ARRAY_OF INTEGER[];
+    i, j, p: INTEGER = 0;
+BEGIN
+write (V1[]);
+read (V1);
+write (V2[]);
+read (V2);
+dot_product(V1, V1, p);
+IF (p == 0) THEN
+    write ("the two vectors of given IR are orthogonal");
+END_IF
+END
+
+
+FUNCTION dot_product(V1,V2 : ARRAY_OF INTEGER[]) : INTEGER
+VAR
+    i, j, p : INTEGER :=0;
+BEGIN
+    IF (V1.length= V2.length) THEN
+        FOR i FROM 0 TO V1.length-1 STEP i++  DO
+            FOR j FROM 0 TO V2.length-1 STEP j++  DO
+            p:= p + V1[i]*V2[j];
+            END_FOR
+        END_FOR
+    END_IF
+    RETURN p;
+END
+
+ALGORITHM dot_product_algo
+VAR
+    V1, V2 : ARRAY_OF INTEGER[];
+    i, j, p: INTEGER = 0;
+BEGIN
+write (V1[]);
+read (V1);
+write (V2[]);
+read (V2);
+p:= dot_product(V1, V1);
+IF (p == 0) THEN
+    write ("the two vectors of given IR are orthogonal");
+END_IF
+END
